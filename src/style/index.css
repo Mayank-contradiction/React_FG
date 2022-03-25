@@ -1,0 +1,12 @@
+:root{
+    --purple: rgb(180, 62, 180);
+}
+
+li.nav-item a.current {
+    border-bottom: 2px solid var(--purple);
+    color: var(--purple) !important;
+}
+
+li.nav-item a:hover{
+    color: var(--purple) !important;
+}
