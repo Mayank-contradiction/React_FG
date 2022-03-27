@@ -45,6 +45,7 @@ const Form = () => {
     //Used to reset modal
     const formRef = useRef(null);
 
+    //check validation for every field.
     const validation = ()=>{
         let result = true;
         let isEmptytemp = isEmpty;
@@ -57,7 +58,7 @@ const Form = () => {
         }else{
             isEmptytemp.customerName = false;
             if(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~0-9]/.test(customerName)){
-                isValidTemp.customerName = "Customer name shouldn't contain special characters.";
+                isValidTemp.customerName = "Customer name shouldn't contain special characters or numbers.";
                 result = false;
             }
             else {
@@ -124,6 +125,7 @@ const Form = () => {
         return result;
     }
 
+    //Handle form submission
     const handleFormData = (e) =>{
         e.preventDefault();
         if(validation()){
@@ -144,6 +146,8 @@ const Form = () => {
             }).catch((e)=>{
                 if(e.name === "ConstraintError"){
                     alert("Your feedback is already recieved.(Note: Please change your email id.)")
+                }else{
+                    alert("Some erorr occured.)")
                 }
             })
         }
@@ -153,8 +157,7 @@ const Form = () => {
         <div className="container-fluid bg-light py-2">
             <h4>Aromatic Bar</h4>
             <p>We are committed to providing you with the best dining experience possible, so we welcome your comments. Please fill out this questionnaire. Thank you.</p>
-            <div className="bootstrap-iso">
-                <div className="container form-container p-3">
+            <div className="bootstrap-iso form-container p-3 rounded">
                 <form ref={formRef}>
                     <div className="form-group ">
                         <label className="control-label " htmlFor="name">Name
@@ -287,15 +290,18 @@ const Form = () => {
                     <div className="text-center">
                         <button className="btn btn-custom text-light" type="submit" onClick={handleFormData}>Submit</button>
                     </div>
-                    </form>
-                </div>
+                </form>
             </div>
             <button className="d-none" data-toggle="modal" data-target="#myModal" ref={modalButtonRef}></button>
             <div className="modal fade" id="myModal">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Data Saved!</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
                         <div className="modal-body">
-                            Thanks for your precious feedback!
+                            <h5>Thanks for your precious feedback.</h5>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>

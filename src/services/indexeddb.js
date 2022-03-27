@@ -28,7 +28,7 @@ export const saveData = (data) => {
                 }
             }
         )
-    } else {
+    }else {
         alert("You browser does not support indexedDB API");
     }
 }
@@ -37,7 +37,7 @@ export const saveData = (data) => {
 export const getData = () => {
     if(window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB) {
         return new Promise(
-            function(resolve, reject) {
+            function(resolve) {
                 let request = window.indexedDB.open("AromaticBar");
 
                 let dbExists = true;
@@ -64,8 +64,9 @@ export const getData = () => {
                 request.onerror = (e)=>{
                     console.log("There was an error: " + e.target.error.message);
                 }
-            });
-    } else {
+            }
+        )
+    }else {
         alert("You browser does not support indexedDB API");
     }
 }

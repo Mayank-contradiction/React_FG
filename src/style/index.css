@@ -33,7 +33,9 @@ li.nav-item a:hover{
 }
 
 .bootstrap-iso .form-control:focus { 
-  border-color: #b43eb4;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(180, 62, 180, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(180, 62, 180, 0.6);
+  border-color: #b43eb4;  
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(180, 62, 180, 0.6); 
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(180, 62, 180, 0.6);
 }
 
 .invalid, .invalid:focus{
@@ -45,14 +47,12 @@ li.nav-item a:hover{
   color: red;
 }
 
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
+[type="radio"]:checked, [type="radio"]:not(:checked) {
   position: absolute;
   left: -9999px;
 }
 
-[type="radio"]:checked+label,
-[type="radio"]:not(:checked)+label {
+[type="radio"]:checked+label, [type="radio"]:not(:checked)+label {
   position: relative;
   padding-left: 28px;
   cursor: pointer;
@@ -61,8 +61,7 @@ li.nav-item a:hover{
   color: #666;
 }
 
-[type="radio"]:checked+label:before,
-[type="radio"]:not(:checked)+label:before {
+[type="radio"]:checked+label:before, [type="radio"]:not(:checked)+label:before {
   content: '';
   position: absolute;
   left: 0;
@@ -74,8 +73,7 @@ li.nav-item a:hover{
   background: #fff;
 }
 
-[type="radio"]:checked+label:after,
-[type="radio"]:not(:checked)+label:after {
+[type="radio"]:checked+label:after, [type="radio"]:not(:checked)+label:after {
   content: '';
   width: 12px;
   height: 12px;
@@ -101,9 +99,15 @@ li.nav-item a:hover{
 }
 
 [type="radio"]:checked ~ label {
-    color: var(--purple);
-  }
+  color: var(--purple);
+}
 
 .flex-item {
-    flex-grow: 1;
+  flex-grow: 1;
+}
+
+@media only screen and (max-width: 767px) {
+  ul.pagination { 
+    justify-content: center;
+  }
 }
